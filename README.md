@@ -1,16 +1,33 @@
-# React + Vite
+# EBAC
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Módulo React
 
-Currently, two official plugins are available:
+### Segue abaixo uma lista das atribuições realizadas neste módulo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- compreendeu o que é JSX e como ele foi usado para criar elementos de interface do usuário no React;
+- utilizou fragmentos em JSX para envolver múltiplos elementos sem a necessidade de uma div ou outro contêiner;
+- explorou como as expressões JSX condicionais funcionaram;
+- entendeu a dinâmica de importação e exportação em React;
+- criou componentes em React, que foram essenciais para a construção de interfaces de usuário reutilizáveis e modulares;
+- praticou a estruturação de projetos React, organizando componentes em pastas e arquivos;
+assimilou o conceito de reatividade no React;
+- iniciou e atualizou o estado;
+- compreendeu como o estado afeta a renderização dos componentes;
+- configurou e gerenciou eventos;
+- passou argumentos para manipuladores de eventos;
+- conceituou useEffect e hook;
+- especificou variáveis ou estados que devem ser monitorados para acionar a execução do código dentro do useEffect;
+- escolheu as dependências para garantir que o código fosse executado quando necessário e evitou loops infinitos;
+- assimilou como o useEffect se relacionou com o ciclo de vida do componente React;
+- executou código quando o componente foi montado, atualizado ou desmontado;
+- entendeu os conceitos e a sintaxe necessária para mapear uma lista de itens e renderizá-las individualmente;
+- dominou o uso de map() para renderização de listas em React;
+- entendeu o conceito e a importância de chaves (keys) em elementos renderizados;
+- compreendeu o que é CSS Modules e por que eles foram usados em projetos React;
+- criou arquivos de estilo usando CSS Modules e aplicou a elementos específicos em componentes React;
+- usou variáveis CSS para gerenciar cores e estilos.
 
-## React Compiler
+## Listagem de repositórios
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Ao final do módulo foi realizado a construção de uma página onde a partir de uma API do github, quando pesquisado o nome de usuário é carregado os repositórios existentes na determinada conta. Realizado deploy pela Vercel.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
