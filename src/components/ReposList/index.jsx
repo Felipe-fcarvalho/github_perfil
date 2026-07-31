@@ -11,26 +11,34 @@ const ReposList = ({ nomeUsuario }) => {
         setErr("");
         setRepos([]);
 
-        fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
+        const timerPromise = fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
             .then(res => {
                 if (!res.ok) {
                     if (res.status === 404) {
-                        throw new Error("Perfil fo Github não encontrado.");
+                        throw new Error("Perfil do GitHub não encontrado.");
                     }
                     throw new Error("Ocorreu um erro ao buscar os repositórios.");
                 }
                 return res.json();
             })
             .then(resJson => {
-                setTimeout(() => {
+                const timer = setTimeout(() => {
                     setRepos(resJson);
                     setEstaCarregando(false);
                 }, 1000);
+
+                return timer;
             })
             .catch(e => {
-                setErro(e.message);
+                setErr(e.message);
                 setEstaCarregando(false);
-            })
+            });
+
+        return () => {
+            timerPromise.then(timer => {
+                if (timer) clearTimeout(timer);
+            });
+        };
     }, [nomeUsuario]);
 
     return (
@@ -44,24 +52,25 @@ const ReposList = ({ nomeUsuario }) => {
                     {repos.map(({ id, name, language, html_url }) => (
                         <li className={styles.listItem} key={id}>
                             <div className={styles.itemName}>
-                                <b>Nome:</b>
-                                {name}
+                                <b>Nome:</b> {name}
                             </div>
                             <div className={styles.itemLanguage}>
-                                <b>Linguagem:</b>
-                                {language}
+                                <b>Linguagem:</b> {language}
                             </div>
                             <a
                                 className={styles.itemLink}
                                 target="_blank"
-                                href={html_url}>Visitar no Github
+                                rel="noopener noreferrer"
+                                href={html_url}
+                            >
+                                Visitar no GitHub
                             </a>
                         </li>
                     ))}
                 </ul>
             )}
         </div>
-    )
-}
+    );
+};
 
 export default ReposList;
